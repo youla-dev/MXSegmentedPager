@@ -219,6 +219,8 @@ typedef NS_ENUM(NSInteger, MXSegmentedControlPosition) {
  */
 - (void)reloadData;
 
+- (void)reloadTabTitles;
+
 /**
  Scrolls the main contentView back to the top position
  */

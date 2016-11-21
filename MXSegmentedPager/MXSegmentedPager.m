@@ -47,6 +47,13 @@
         _controlHeight = [self.delegate heightForSegmentedControlInSegmentedPager:self];
     }
     
+    [self reloadTabTitles];
+    
+    [self.pager reloadData];
+}
+
+
+- (void)reloadTabTitles {
     //Gets new data
     NSMutableArray *images          = [NSMutableArray arrayWithCapacity:_count];
     NSMutableArray *selectedImages  = [NSMutableArray arrayWithCapacity:_count];
@@ -79,9 +86,8 @@
     self.segmentedControl.sectionSelectedImages = selectedImages;
     self.segmentedControl.sectionTitles = titles;
     [self.segmentedControl setNeedsDisplay];
-    
-    [self.pager reloadData];
 }
+
 
 - (void)scrollToTopAnimated:(BOOL)animated {
     [_contentView setContentOffset:CGPointMake(0, -self.contentView.parallaxHeader.height)
