@@ -112,7 +112,11 @@
     CGRect frame = self.bounds;
     
     frame.origin = CGPointZero;
+    CGPoint offset = self.contentView.contentOffset;
     self.contentView.frame = frame;
+    if (offset.y <= 0.0f) {
+        self.contentView.contentOffset = offset;
+    }
     self.contentView.contentSize = self.contentView.frame.size;
     self.contentView.scrollEnabled = !!self.contentView.parallaxHeader.view;
     self.contentView.contentInset = UIEdgeInsetsMake(self.contentView.parallaxHeader.height, 0, 0, 0);
